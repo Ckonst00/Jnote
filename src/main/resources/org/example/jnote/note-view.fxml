@@ -2,13 +2,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.jnote.controllers.NoteController"
-      prefWidth="800" prefHeight="600">
-
-    <VBox HBox.hgrow="ALWAYS" prefHeight="600">
-        <ListView fx:id="noteList" VBox.vgrow="ALWAYS" />
-    </VBox>
-
-
-</HBox>
+<SplitPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.jnote.controllers.NoteController">
+<ListView fx:id="noteList" />
+<VBox fx:id="detailPane">
+    <Label text="Select a note..." />
+</VBox>
+</SplitPane>

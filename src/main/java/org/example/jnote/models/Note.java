@@ -32,7 +32,8 @@ public class Note {
         this.content = content;
     }
 
-    public String getDate() { return date; }
+    public String getDate() { return "Created:" + " " + date; }
+
     public void setDate(String date) { this.date = date; }
 
     @Override
