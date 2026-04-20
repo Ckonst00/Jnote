@@ -39,4 +39,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
+# Contains my default testing notes, might un-ignore this later.
 notes.json
