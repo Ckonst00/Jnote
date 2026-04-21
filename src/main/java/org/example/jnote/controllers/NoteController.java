@@ -13,6 +13,7 @@ import org.example.jnote.models.Note;
 import org.example.jnote.services.NoteService;
 import org.example.jnote.services.NoteStorageService;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class NoteController {
     private VBox detailPane;
     private final NoteService noteService = new NoteService();
     private final NoteStorageService noteStorageService = new NoteStorageService();
-
+    private String noteId = "";
 
     @FXML
     public void initialize() {
@@ -46,9 +47,11 @@ public class NoteController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-detail.fxml"));
                 Node detail = loader.load();
+                noteId = selectedNote.getId(); // Sets the selected notes id
 
                 NoteDetailController controller = loader.getController();
                 controller.setNote(selectedNote);
+                controller.setNoteController(this);
 
                 detailPane.getChildren().setAll(detail);
             } catch (IOException e) {
@@ -58,6 +61,15 @@ public class NoteController {
     }
 
     @FXML
-    public void addNote() {}
+    public void addNote() {
+        Note testNote = new Note("I wanna", "be your dog");
+        noteService.addNote(testNote);
+        noteStorageService.saveNotes(noteService.getNotes());
+    }
 
+    @FXML
+    public void deleteNoteById() {
+        noteService.deleteNote(noteId);
+        noteStorageService.saveNotes(noteService.getNotes());
+    }
 }

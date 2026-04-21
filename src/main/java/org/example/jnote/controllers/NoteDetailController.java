@@ -6,6 +6,8 @@ import javafx.scene.control.TextArea;
 import org.example.jnote.models.Note;
 
 public class NoteDetailController {
+    private NoteController noteController; // <-- Calls method from NoteController
+
     @FXML
     private Label titleLabel;
     @FXML
@@ -15,7 +17,16 @@ public class NoteDetailController {
 
     public void setNote(Note note) {
         titleLabel.setText(note.getTitle());
-        contentArea.setText(note.getContent());
+        contentArea.setText(note.getContent() + " : " + note.getId());
         dateLabel.setText(note.getDate());
+    }
+
+    public void setNoteController(NoteController noteController) {
+        this.noteController = noteController;
+    }
+
+    @FXML
+    public void handleDelete() {
+        noteController.deleteNoteById();
     }
 }

@@ -16,7 +16,8 @@ public class NoteService {
         notes.add(note);
     }
 
-    public void deleteNote(Note note) {
-        notes.remove(note);
+    public void deleteNote(String id) {
+        //found this method from: https://stackoverflow.com/questions/46645539/removing-object-of-arraylist-by-using-its-unique-id
+        notes.removeIf(n ->n.getId().equals(id));
     }
 }
