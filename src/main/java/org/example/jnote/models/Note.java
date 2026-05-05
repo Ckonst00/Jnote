@@ -1,5 +1,7 @@
 package org.example.jnote.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -10,13 +12,14 @@ public class Note {
     private String date;
     private String id;
 
+    @JsonCreator
     public Note() {} //JSON
 
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
         this.date = LocalDateTime.now().toString();
-        this.id = setId();
+        this.id = generateId();
     }
 
     /// //////// GETTERS ////////////////
@@ -28,28 +31,15 @@ public class Note {
         return content;
     }
 
-    public String getDate() { return "Created:" + " " + date; }
+    public String getDate() { return date; }
 
     public String getId() { return this.id; }
 
-    /// ////////// SETTERS ////////////////
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public void setDate(String date) { this.date = date; }
-
-    public String setId() {
-        // Create random ID
-        return UUID.randomUUID().toString();
-    }
-
 
     /// /////////////////////////////////////////////
+    private String generateId() {
+        return UUID.randomUUID().toString();
+    }
     @Override
     public String toString() {
         return title + " - " + content + " - " + date;
