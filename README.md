@@ -14,7 +14,7 @@ Basic functionality:
 Advanced functionalities
 - Different sorting methods
 
-So far only reading notes is implemented. Buttons are just placeholders currently. See the picture below:
+Adding and deleting notes works. Modifying does not yet. The image is not up to date yet but will be updated soon.
 
 <img width="807" height="629" alt="kuva" src="https://github.com/user-attachments/assets/34a150c9-9ea2-49c7-9404-6d52f683589a" />
 
@@ -28,7 +28,8 @@ Notes are stored in a `notes.json` file in the following format:
   {
     "title": "Stayin' Alive by Bee Gees",
     "content": "Listening this currently on spotify.",
-    "date": "20.4.2026"
+    "date": "20.4.2026",
+    "id" : "1fd5f530-e9eb-48ab-8565-e0b0ba838499"
   }
 ]
 ```
