@@ -17,7 +17,7 @@ public class NoteDetailController {
 
     public void setNote(Note note) {
         titleLabel.setText(note.getTitle());
-        contentArea.setText(note.getContent() + " : " + note.getId());
+        contentArea.setText(note.getContent() + " : " + note.getId()); // <-- noteId for debugging
         dateLabel.setText(note.getDate());
     }
 

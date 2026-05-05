@@ -8,5 +8,5 @@
 <VBox fx:id="detailPane">
     <Label text="Select a note..." />
 </VBox>
-    <Button onAction="#addNote">+</Button>
+    <Button onAction="#handleNewButtonAction">+</Button>
 </SplitPane>

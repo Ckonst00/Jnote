@@ -8,14 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.example.jnote.models.Note;
 import org.example.jnote.services.NoteService;
 import org.example.jnote.services.NoteStorageService;
-
-import javax.swing.*;
+import javafx.event.ActionEvent;
 import java.io.IOException;
-import java.util.ArrayList;
+import javafx.stage.Stage;
 
 public class NoteController {
 
@@ -60,11 +58,28 @@ public class NoteController {
         });
     }
 
-    @FXML
-    public void addNote() {
-        Note testNote = new Note("I wanna", "be your dog");
-        noteService.addNote(testNote);
+    public void addNote(String title, String content) {
+        if (title.isBlank()) title = "Untitled";
+        if (content.isBlank()) content = "";
+
+        noteService.addNote(new Note(title, content));
         noteStorageService.saveNotes(noteService.getNotes());
+    }
+
+    @FXML
+    public void handleNewButtonAction (ActionEvent event) throws IOException {
+        System.out.println("Add note button pressed.");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-form.fxml"));
+        Parent formRoot = loader.load();
+        NewNoteController controller = loader.getController();
+        controller.setNoteController(this); // pass reference to self
+
+        Stage stage = new Stage();
+        stage.setTitle("New Note");
+
+        stage.setScene(new Scene(formRoot));
+        stage.setResizable(false); // Doesn't allow resizing the window.
+        stage.show();
     }
 
     @FXML
@@ -72,4 +87,5 @@ public class NoteController {
         noteService.deleteNote(noteId);
         noteStorageService.saveNotes(noteService.getNotes());
     }
+
 }
