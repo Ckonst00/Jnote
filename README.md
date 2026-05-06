@@ -14,9 +14,13 @@ Basic functionality:
 Advanced functionalities
 - Different sorting methods
 
-Adding and deleting notes works. Modifying does not yet. The image is not up to date yet but will be updated soon.
+Adding and deleting notes works. Modifying does not yet.
 
-<img width="807" height="629" alt="kuva" src="https://github.com/user-attachments/assets/34a150c9-9ea2-49c7-9404-6d52f683589a" />
+<img width="847" height="627" alt="kuva" src="https://github.com/user-attachments/assets/9e40ea04-4168-4e1b-bc47-1f79ccd5a66b" />
+
+By pressing the "+", a form appears for new note.
+<img width="846" height="630" alt="kuva" src="https://github.com/user-attachments/assets/7df42cab-f7be-40d6-ac0c-5aa94b1e80cf" />
+
 
 ---
 Storage:
