@@ -3,6 +3,7 @@ package org.example.jnote.models;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Note {
@@ -18,7 +19,8 @@ public class Note {
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
-        this.date = LocalDateTime.now().toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
+        this.date = LocalDateTime.now().format(formatter);
         this.id = generateId();
     }
 
