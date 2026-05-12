@@ -14,7 +14,7 @@
     <TextArea fx:id="contentArea" minHeight="500" minWidth="300"/>
     <HBox spacing="5">
         <Button>Save</Button>
-        <Button>Delete</Button>
+        <Button onAction="#handleDelete">Delete</Button>
     </HBox>
     <Label fx:id="dateLabel" />
 </VBox>

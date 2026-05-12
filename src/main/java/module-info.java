@@ -2,6 +2,7 @@ module org.example.jnote {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.fasterxml.jackson.databind;
+    requires java.desktop;
 
     opens org.example.jnote to javafx.fxml;
     opens org.example.jnote.controllers to javafx.fxml;

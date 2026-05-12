@@ -1,21 +1,30 @@
 package org.example.jnote.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 public class Note {
 
     private String title;
     private String content;
     private String date;
+    private String id;
 
+    @JsonCreator
     public Note() {} //JSON
 
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
-        this.date = LocalDateTime.now().toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
+        this.date = LocalDateTime.now().format(formatter);
+        this.id = generateId();
     }
 
+    /// //////// GETTERS ////////////////
     public String getTitle() {
         return title;
     }
@@ -24,18 +33,15 @@ public class Note {
         return content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getDate() { return date; }
+
+    public String getId() { return this.id; }
+
+
+    /// /////////////////////////////////////////////
+    private String generateId() {
+        return UUID.randomUUID().toString();
     }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getDate() { return "Created:" + " " + date; }
-
-    public void setDate(String date) { this.date = date; }
-
     @Override
     public String toString() {
         return title + " - " + content + " - " + date;
