@@ -1,12 +1,14 @@
 package org.example.jnote.controllers;
 
-import javafx.event.ActionEvent;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class NewNoteController {
+public class NoteFormController {
     private NoteController noteController; // <-- Calls method from NoteController
     @FXML
     private Text actiontarget;
@@ -14,6 +16,8 @@ public class NewNoteController {
     private TextField titlelabel;
     @FXML
     private TextArea content;
+    @FXML
+    private javafx.scene.control.Button submitButton;
 
     public void setNoteController(NoteController noteController) {
         this.noteController = noteController;
@@ -22,5 +26,12 @@ public class NewNoteController {
     @FXML protected void handleSubmitButtonAction() {
         actiontarget.setText("Submit button pressed");
         noteController.addNote(titlelabel.getText(), content.getText());
+
+            PauseTransition pause = new PauseTransition(Duration.millis(100));  // Makes the UI look and feel cooler :D.
+            pause.setOnFinished(e -> {
+                Stage stage = (Stage) submitButton.getScene().getWindow(); // Got this method from: https://stackoverflow.com/questions/13567019/close-fxml-window-by-code-javafx
+                stage.close();  // Closes the Form window.
+            });
+            pause.play();
     }
 }

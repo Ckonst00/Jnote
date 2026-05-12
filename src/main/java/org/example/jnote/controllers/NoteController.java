@@ -71,7 +71,7 @@ public class NoteController {
         System.out.println("Add note button pressed.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-form.fxml"));
         Parent formRoot = loader.load();
-        NewNoteController controller = loader.getController();
+        NoteFormController controller = loader.getController();
         controller.setNoteController(this); // pass reference to self
 
         Stage stage = new Stage();
