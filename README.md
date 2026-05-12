@@ -14,7 +14,11 @@ Basic functionality:
 Advanced functionalities
 - Different sorting methods
 
-Adding and deleting notes works. Modifying does not yet.
+Uppcoming updates:
+- Modify note content
+- Folder structure
+    - Folder can contain multiple notes
+ - Proper structure and styling
 
 <img width="847" height="627" alt="kuva" src="https://github.com/user-attachments/assets/9e40ea04-4168-4e1b-bc47-1f79ccd5a66b" />
 
