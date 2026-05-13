@@ -17,7 +17,7 @@ public class NoteDetailController {
 
     public void setNote(Note note) {
         titleLabel.setText(note.getTitle());
-        contentArea.setText(note.getContent() + " : " + note.getId()); // <-- noteId for debugging
+        contentArea.setText(note.getContent());
         dateLabel.setText(note.getDate());
     }
 
@@ -28,5 +28,10 @@ public class NoteDetailController {
     @FXML
     public void handleDelete() {
         noteController.deleteNoteById();
+    }
+
+    @FXML
+    public void handleSave() {
+        noteController.saveModifiedNoteById(contentArea.getText());
     }
 }

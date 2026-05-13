@@ -34,5 +34,4 @@ public class NoteStorageService  {
             return List.of(); // fallback to empty list if error
         }
     }
-
 }

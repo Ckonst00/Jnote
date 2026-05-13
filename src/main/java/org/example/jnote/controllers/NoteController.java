@@ -1,5 +1,6 @@
 package org.example.jnote.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +14,8 @@ import org.example.jnote.services.NoteService;
 import org.example.jnote.services.NoteStorageService;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.util.List;
+
 import javafx.stage.Stage;
 
 public class NoteController {
@@ -85,6 +88,13 @@ public class NoteController {
     @FXML
     public void deleteNoteById() {
         noteService.deleteNote(noteId);
+        noteStorageService.saveNotes(noteService.getNotes());
+    }
+
+    @FXML
+    public void saveModifiedNoteById(String newContent) {
+        System.out.println("Save button pressed." + " ID: of the note: " + noteId);
+        noteService.saveNote(newContent, noteId);
         noteStorageService.saveNotes(noteService.getNotes());
     }
 

@@ -13,7 +13,7 @@
     <Label fx:id="titleLabel" maxWidth="Infinity" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
     <TextArea fx:id="contentArea" minHeight="500" minWidth="300"/>
     <HBox spacing="5">
-        <Button>Save</Button>
+        <Button onAction="#handleSave">Save</Button>
         <Button onAction="#handleDelete">Delete</Button>
     </HBox>
     <Label fx:id="dateLabel" />

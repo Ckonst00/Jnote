@@ -37,6 +37,11 @@ public class Note {
 
     public String getId() { return this.id; }
 
+    /// //////// SETTERS //////////////////
+    public void setContent(String content) {
+        this.content = content;
+    }
+
 
     /// /////////////////////////////////////////////
     private String generateId() {

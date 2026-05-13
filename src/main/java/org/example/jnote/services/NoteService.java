@@ -20,4 +20,13 @@ public class NoteService {
         //found this method from: https://stackoverflow.com/questions/46645539/removing-object-of-arraylist-by-using-its-unique-id
         notes.removeIf(n ->n.getId().equals(id));
     }
+
+    public void saveNote(String newContent, String id) {
+        notes.stream()
+                .filter(n -> n.getId().equals(id))
+                .findFirst()
+                .ifPresent(n -> {
+                    n.setContent(newContent);
+                });
+    }
 }
