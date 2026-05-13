@@ -15,7 +15,6 @@ Advanced functionalities
 - Different sorting methods
 
 Uppcoming updates:
-- Modify note content
 - Folder structure
     - Folder can contain multiple notes
  - Proper structure and styling
