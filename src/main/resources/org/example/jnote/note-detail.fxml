@@ -5,12 +5,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.control.TextField?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.jnote.controllers.NoteDetailController">
     <padding>
         <Insets top="15" right="15" bottom="15" left="15" />
     </padding>
-    <Label fx:id="titleLabel" maxWidth="Infinity" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+    <TextField fx:id="titleField" maxWidth="Infinity" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
     <TextArea fx:id="contentArea" minHeight="500" minWidth="300"/>
     <HBox spacing="5">
         <Button onAction="#handleSave">Save</Button>

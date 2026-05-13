@@ -13,7 +13,7 @@ public class NoteFormController {
     @FXML
     private Text actiontarget;
     @FXML
-    private TextField titlelabel;
+    private TextField titleField;
     @FXML
     private TextArea content;
     @FXML
@@ -25,7 +25,7 @@ public class NoteFormController {
 
     @FXML protected void handleSubmitButtonAction() {
         actiontarget.setText("Submit button pressed");
-        noteController.addNote(titlelabel.getText(), content.getText());
+        noteController.addNote(titleField.getText(), content.getText());
 
             PauseTransition pause = new PauseTransition(Duration.millis(100));  // Makes the UI look and feel cooler :D.
             pause.setOnFinished(e -> {

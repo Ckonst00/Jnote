@@ -21,11 +21,12 @@ public class NoteService {
         notes.removeIf(n ->n.getId().equals(id));
     }
 
-    public void saveNote(String newContent, String id) {
+    public void saveNote(String newTitle, String newContent, String id) {
         notes.stream()
                 .filter(n -> n.getId().equals(id))
                 .findFirst()
                 .ifPresent(n -> {
+                    n.setTitle(newTitle);
                     n.setContent(newContent);
                 });
     }

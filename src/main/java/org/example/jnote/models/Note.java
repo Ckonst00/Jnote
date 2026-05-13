@@ -38,6 +38,9 @@ public class Note {
     public String getId() { return this.id; }
 
     /// //////// SETTERS //////////////////
+    public void setTitle(String title) {
+        this.title = title;
+    }
     public void setContent(String content) {
         this.content = content;
     }

@@ -1,6 +1,5 @@
 package org.example.jnote.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,7 +13,7 @@ import org.example.jnote.services.NoteService;
 import org.example.jnote.services.NoteStorageService;
 import javafx.event.ActionEvent;
 import java.io.IOException;
-import java.util.List;
+
 
 import javafx.stage.Stage;
 
@@ -70,7 +69,7 @@ public class NoteController {
     }
 
     @FXML
-    public void handleNewButtonAction (ActionEvent event) throws IOException {
+    public void handleNewButtonAction (ActionEvent event) throws IOException {  // Method initializing the form window for new notes.
         System.out.println("Add note button pressed.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-form.fxml"));
         Parent formRoot = loader.load();
@@ -86,15 +85,15 @@ public class NoteController {
     }
 
     @FXML
-    public void deleteNoteById() {
+    public void deleteNoteById() {  // Method for deleting the note by its ID.
         noteService.deleteNote(noteId);
         noteStorageService.saveNotes(noteService.getNotes());
     }
 
     @FXML
-    public void saveModifiedNoteById(String newContent) {
+    public void saveModifiedNoteById(String newTitle, String newContent) {  // Method for editing the note and saving its new content to notes.
         System.out.println("Save button pressed." + " ID: of the note: " + noteId);
-        noteService.saveNote(newContent, noteId);
+        noteService.saveNote(newTitle, newContent, noteId);
         noteStorageService.saveNotes(noteService.getNotes());
     }
 
