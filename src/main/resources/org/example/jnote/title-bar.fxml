@@ -1,0 +1,47 @@
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+
+
+<!-- Custom title bar -->
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.jnote.controllers.TitleBarController"
+      stylesheets="@styles.css">
+<HBox fx:id="titleBar" styleClass="title-bar" alignment="CENTER_LEFT" spacing="10"
+      onMousePressed="#handleTitleBarPress" onMouseDragged="#handleTitleBarDrag">
+    <padding><Insets top="10" right="12" bottom="10" left="12"/></padding>
+
+    <!-- Left spacer -->
+    <HBox HBox.hgrow="ALWAYS" spacing="8" alignment="CENTER_LEFT">
+        <padding><Insets left="12"/></padding>
+        <Label fx:id="windowTitle" text="JNote" styleClass="title-bar-title"/>
+        <ImageView fitWidth="32" fitHeight="32" preserveRatio="true">
+            <Image url="@icons/java-logo.png"/>
+        </ImageView>
+    </HBox>
+
+    <!-- Right side: window controls (balances the left spacer) -->
+    <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+        <Button text="─" styleClass="win-btn" onAction="#handleMinimize"/>
+        <Button styleClass="win-btn" onAction="#handleMaximize">
+            <graphic>
+                <ImageView fitWidth="14" fitHeight="14" preserveRatio="true">
+                    <Image url="@icons/maximise.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button styleClass="win-btn-close" onAction="#handleClose">
+            <graphic>
+                <ImageView fitWidth="14" fitHeight="14" preserveRatio="true">
+                    <Image url="@icons/letter-x.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </HBox>
+</HBox>
+</VBox>

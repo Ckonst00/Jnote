@@ -1,0 +1,280 @@
+/* ── Root / Background ── */
+.root {
+    -fx-background-color: #1e1e2e;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    -fx-background-color: #181825;
+    -fx-min-width: 220px;
+    -fx-pref-width: 220px;
+}
+
+.sidebar-title {
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.new-note-button {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 0 8 0;
+}
+
+/* ── ListView ── */
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 13px;
+    -fx-padding: 8 10 8 10;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: #313244;
+    -fx-background-radius: 6;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #1e1e2e;
+    -fx-background-radius: 6;
+}
+
+.list-view:focused {
+    -fx-border-color: transparent;
+}
+
+/* ── Note Detail ── */
+.detail-pane {
+    -fx-background-color: #1e1e2e;
+}
+
+.note-title {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 8 0;
+}
+
+.note-date {
+    -fx-text-fill: #6c7086;
+    -fx-font-size: 12px;
+}
+
+.note-content {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 14px;
+    -fx-padding: 0;
+}
+
+.separator {
+    -fx-opacity: 0.15;
+}
+
+/* ── Buttons ── */
+.save-button {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 7 20 7 20;
+}
+
+.delete-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f38ba8;
+    -fx-border-color: #f38ba8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 7 20 7 20;
+}
+
+/* ── TextField inner background ── */
+.note-title {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 8 0;
+}
+
+.note-title:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* ── TextArea and its inner parts ── */
+.note-content {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 14px;
+    -fx-padding: 0;
+}
+
+.note-content .content {
+    -fx-background-color: transparent;
+}
+
+.note-content .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.note-content .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.note-content .scroll-pane .corner {
+    -fx-background-color: transparent;
+}
+
+/* ── Scrollbar styling ── */
+.note-content .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.note-content .scroll-bar .thumb {
+    -fx-background-color: #313244;
+    -fx-background-radius: 4;
+}
+
+.note-content .scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.note-content .scroll-bar .increment-button,
+.note-content .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ── Prompt text color ── */
+.note-title .prompt-text, .note-content .prompt-text {
+    -fx-fill: #45475a;
+}
+
+/* ── Form window ── */
+.form-root {
+    -fx-background-color: #1e1e2e;
+}
+
+.form-title {
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.form-label {
+    -fx-text-fill: #6c7086;
+    -fx-font-size: 12px;
+}
+
+.form-field {
+    -fx-background-color: #313244;
+    -fx-border-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 13px;
+    -fx-background-radius: 6;
+    -fx-padding: 8 10 8 10;
+}
+
+.form-field:focused {
+    -fx-background-color: #313244;
+    -fx-border-color: #89b4fa;
+    -fx-border-radius: 6;
+}
+
+.form-textarea {
+    -fx-background-color: #313244;
+    -fx-border-color: transparent;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 13px;
+    -fx-background-radius: 6;
+}
+
+.form-textarea .content {
+    -fx-background-color: transparent;
+}
+
+.form-textarea .scroll-pane,
+.form-textarea .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-textarea:focused {
+    -fx-border-color: #89b4fa;
+    -fx-border-radius: 6;
+}
+
+.form-action-text {
+    -fx-fill: #6c7086;
+    -fx-font-size: 12px;
+}
+
+/* ── Title Bar ── */
+.title-bar {
+    -fx-background-color: #11111b;
+    -fx-padding: 0;
+}
+
+.logo-icon {
+    -fx-background-color: #89b4fa;
+    -fx-background-radius: 6;
+    -fx-min-width: 28px;
+    -fx-min-height: 28px;
+    -fx-max-width: 28px;
+    -fx-max-height: 28px;
+}
+
+.title-bar-title {
+    -fx-font-family: "Javanese Text";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #cdd6f4;
+}
+
+/* ── Window control buttons ── */
+.win-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFF;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 8 14 8 14;
+    -fx-border-color: transparent;
+}
+
+.win-btn:hover {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+}
+
+.win-btn-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: #6c7086;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 8 14 8 14;
+    -fx-border-color: transparent;
+}
+
+.win-btn-close:hover {
+    -fx-background-color: #f38ba8;
+    -fx-text-fill: #1e1e2e;
+}

@@ -8,11 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import javafx.stage.StageStyle;
 import org.example.jnote.models.Note;
 import org.example.jnote.services.NoteService;
 import org.example.jnote.services.NoteStorageService;
-import javafx.event.ActionEvent;
 import java.io.IOException;
+
+
 import javafx.stage.Stage;
 
 public class NoteController {
@@ -25,11 +27,13 @@ public class NoteController {
     private final NoteStorageService noteStorageService = new NoteStorageService();
     private String noteId = "";
 
+
+
     @FXML
     public void initialize() {
         noteService.getNotes().addAll(noteStorageService.loadNotes());
 
-        noteList.setCellFactory(lv -> new ListCell<Note>() {
+        noteList.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(Note note, boolean empty) {
                 super.updateItem(note, empty);
@@ -67,7 +71,7 @@ public class NoteController {
     }
 
     @FXML
-    public void handleNewButtonAction (ActionEvent event) throws IOException {
+    public void handleNewButtonAction () throws IOException {  // Method initializing the form window for new notes.
         System.out.println("Add note button pressed.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-form.fxml"));
         Parent formRoot = loader.load();
@@ -75,6 +79,7 @@ public class NoteController {
         controller.setNoteController(this); // pass reference to self
 
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED); // removes native title bar
         stage.setTitle("New Note");
 
         stage.setScene(new Scene(formRoot));
@@ -83,8 +88,14 @@ public class NoteController {
     }
 
     @FXML
-    public void deleteNoteById() {
+    public void deleteNoteById() {  // Method for deleting the note by its ID.
         noteService.deleteNote(noteId);
+        noteStorageService.saveNotes(noteService.getNotes());
+    }
+
+    @FXML
+    public void saveModifiedNoteById(String newTitle, String newContent) {  // Method for editing the note and saving its new content to notes.
+        noteService.saveNote(newTitle, newContent, noteId);
         noteStorageService.saveNotes(noteService.getNotes());
     }
 
