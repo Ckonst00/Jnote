@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.example.jnote.models.Note;
 import org.example.jnote.services.NoteService;
@@ -26,6 +28,42 @@ public class NoteController {
     private final NoteService noteService = new NoteService();
     private final NoteStorageService noteStorageService = new NoteStorageService();
     private String noteId = "";
+
+    /// ////////// For the titlebar ////////////
+    private double dragOffsetX, dragOffsetY;
+    @FXML private HBox titleBar;
+    @FXML
+    private void handleTitleBarPress(MouseEvent e) {
+        dragOffsetX = e.getSceneX();
+        dragOffsetY = e.getSceneY();
+    }
+
+    @FXML
+    public void handleTitleBarDrag(MouseEvent e) {
+        Stage stage = (Stage) titleBar.getScene().getWindow();
+        stage.setX(e.getScreenX() - dragOffsetX);
+        stage.setY(e.getScreenY() - dragOffsetY);
+    }
+
+    @FXML
+    public void handleMinimize() {
+        Stage stage = (Stage) titleBar.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    public void handleMaximize() {
+        Stage stage = (Stage) titleBar.getScene().getWindow();
+        stage.setMaximized(!stage.isMaximized());
+    }
+
+    @FXML
+    public void handleClose() {
+        Stage stage = (Stage) titleBar.getScene().getWindow();
+        stage.close();
+    }
+
+    /// ////////////////////////////////////////
 
     @FXML
     public void initialize() {
