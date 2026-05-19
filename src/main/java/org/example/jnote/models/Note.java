@@ -19,7 +19,7 @@ public class Note {
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         this.date = LocalDateTime.now().format(formatter);
         this.id = generateId();
     }
