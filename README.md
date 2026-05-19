@@ -17,12 +17,25 @@ Advanced functionalities
 Uppcoming updates:
 - Folder structure
     - Folder can contain multiple notes
- - Proper structure and styling
+ 
+---
 
-<img width="847" height="627" alt="kuva" src="https://github.com/user-attachments/assets/9e40ea04-4168-4e1b-bc47-1f79ccd5a66b" />
+<img width="789" height="590" alt="kuva" src="https://github.com/user-attachments/assets/4cee6579-e690-4aa6-8829-c37512a0a5db" />
 
-By pressing the "+", a form appears for new note.
-<img width="846" height="630" alt="kuva" src="https://github.com/user-attachments/assets/7df42cab-f7be-40d6-ac0c-5aa94b1e80cf" />
+---
+By pressing the "+ New Note", a form appears for new note. \
+
+<img width="562" height="515" alt="kuva" src="https://github.com/user-attachments/assets/89eaede1-df00-4579-b09f-dd0b12f0167b" />
+
+---
+You can edit the title and content and by pressing "Save" button, saves the changes.
+<img width="781" height="587" alt="kuva" src="https://github.com/user-attachments/assets/1f23e439-3bda-4766-a7a8-fea344dcedd2" />
+
+---
+
+With "Delete" button you can delete the selected note
+
+
 
 
 ---
@@ -35,8 +48,8 @@ Notes are stored in a `notes.json` file in the following format:
   {
     "title": "Stayin' Alive by Bee Gees",
     "content": "Listening this currently on spotify.",
-    "date": "20.4.2026",
-    "id" : "1fd5f530-e9eb-48ab-8565-e0b0ba838499"
+    "date" : "19/05/2026 21:12",
+    "id" : "6e9945d2-4cdd-4572-a4d7-23ad14c04813"
   }
 ]
 ```
