@@ -3,46 +3,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.jnote.controllers.NoteController"
       stylesheets="@styles.css">
 
-    <!-- Custom title bar -->
-    <HBox fx:id="titleBar" styleClass="title-bar" alignment="CENTER_LEFT" spacing="10"
-          onMousePressed="#handleTitleBarPress" onMouseDragged="#handleTitleBarDrag">
-        <padding><Insets top="10" right="12" bottom="10" left="12"/></padding>
-
-        <!-- Left spacer -->
-        <HBox HBox.hgrow="ALWAYS" spacing="8" alignment="CENTER_LEFT">
-            <padding><Insets left="12"/></padding>
-            <Label text="JNote" styleClass="title-bar-title"/>
-            <ImageView fitWidth="32" fitHeight="32" preserveRatio="true" smooth="true">
-                <Image url="@icons/java-logo.png"/>
-            </ImageView>
-        </HBox>
-
-        <!-- Right side: window controls (balances the left spacer) -->
-        <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
-            <Button text="─" styleClass="win-btn" onAction="#handleMinimize"/>
-            <Button styleClass="win-btn" onAction="#handleMaximize">
-                <graphic>
-                    <ImageView fitWidth="14" fitHeight="14" preserveRatio="true" smooth="true">
-                        <image><Image url="@icons/maximise.png"/></image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button styleClass="win-btn-close" onAction="#handleClose">
-                <graphic>
-                    <ImageView fitWidth="14" fitHeight="14" preserveRatio="true" smooth="true">
-                        <image><Image url="@icons/letter-x.png"/></image>
-                    </ImageView>
-                </graphic>
-            </Button>
-        </HBox>
-    </HBox>
-
+    <fx:include source="title-bar.fxml"/>
     <!-- Main content -->
     <BorderPane VBox.vgrow="ALWAYS">
         <left>

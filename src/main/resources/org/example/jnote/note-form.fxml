@@ -2,30 +2,46 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-
 <?import javafx.scene.text.Text?>
+
 <VBox fx:controller="org.example.jnote.controllers.NoteFormController"
       xmlns:fx="http://javafx.com/fxml"
       styleClass="form-root"
-      stylesheets="@styles.css"
-      spacing="16">
-    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+      stylesheets="@styles.css">
 
-    <Label text="New Note" styleClass="form-title"/>
-    <Separator styleClass="separator"/>
+    <!-- TITLE BAR -->
+    <fx:include source="title-bar.fxml"/>
 
-    <Label text="Title" styleClass="form-label"/>
-    <TextField fx:id="titleField" styleClass="form-field" promptText="Note title..."/>
+    <!-- CONTENT -->
+    <VBox spacing="16">
 
-    <Label text="Content" styleClass="form-label"/>
-    <TextArea fx:id="content" styleClass="form-textarea"
-              promptText="Start writing..." prefHeight="200"/>
+        <padding>
+            <Insets top="28" right="28" bottom="28" left="28"/>
+        </padding>
 
-    <HBox alignment="CENTER_RIGHT" spacing="8">
-        <Text fx:id="actiontarget" styleClass="form-action-text"/>
-        <Button fx:id="submitButton" text="Submit"
-                styleClass="save-button"
-                onAction="#handleSubmitButtonAction"/>
-    </HBox>
+        <Label text="New Note" styleClass="form-title"/>
+        <Separator styleClass="separator"/>
+
+        <Label text="Title" styleClass="form-label"/>
+        <TextField fx:id="titleField"
+                   styleClass="form-field"
+                   promptText="Note title..."/>
+
+        <Label text="Content" styleClass="form-label"/>
+        <TextArea fx:id="content"
+                  styleClass="form-textarea"
+                  promptText="Start writing..."
+                  prefHeight="200"/>
+
+        <HBox alignment="CENTER_RIGHT" spacing="8">
+            <Text fx:id="actiontarget" styleClass="form-action-text"/>
+
+            <Button fx:id="submitButton"
+                    text="Submit"
+                    styleClass="save-button"
+                    onAction="#handleSubmitButtonAction"/>
+        </HBox>
+
+    </VBox>
 
 </VBox>

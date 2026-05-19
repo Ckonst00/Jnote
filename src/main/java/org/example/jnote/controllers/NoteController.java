@@ -7,13 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.StageStyle;
 import org.example.jnote.models.Note;
 import org.example.jnote.services.NoteService;
 import org.example.jnote.services.NoteStorageService;
-import javafx.event.ActionEvent;
 import java.io.IOException;
 
 
@@ -29,47 +27,13 @@ public class NoteController {
     private final NoteStorageService noteStorageService = new NoteStorageService();
     private String noteId = "";
 
-    /// ////////// For the titlebar ////////////
-    private double dragOffsetX, dragOffsetY;
-    @FXML private HBox titleBar;
-    @FXML
-    private void handleTitleBarPress(MouseEvent e) {
-        dragOffsetX = e.getSceneX();
-        dragOffsetY = e.getSceneY();
-    }
 
-    @FXML
-    public void handleTitleBarDrag(MouseEvent e) {
-        Stage stage = (Stage) titleBar.getScene().getWindow();
-        stage.setX(e.getScreenX() - dragOffsetX);
-        stage.setY(e.getScreenY() - dragOffsetY);
-    }
-
-    @FXML
-    public void handleMinimize() {
-        Stage stage = (Stage) titleBar.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    @FXML
-    public void handleMaximize() {
-        Stage stage = (Stage) titleBar.getScene().getWindow();
-        stage.setMaximized(!stage.isMaximized());
-    }
-
-    @FXML
-    public void handleClose() {
-        Stage stage = (Stage) titleBar.getScene().getWindow();
-        stage.close();
-    }
-
-    /// ////////////////////////////////////////
 
     @FXML
     public void initialize() {
         noteService.getNotes().addAll(noteStorageService.loadNotes());
 
-        noteList.setCellFactory(lv -> new ListCell<Note>() {
+        noteList.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(Note note, boolean empty) {
                 super.updateItem(note, empty);
@@ -107,7 +71,7 @@ public class NoteController {
     }
 
     @FXML
-    public void handleNewButtonAction (ActionEvent event) throws IOException {  // Method initializing the form window for new notes.
+    public void handleNewButtonAction () throws IOException {  // Method initializing the form window for new notes.
         System.out.println("Add note button pressed.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-form.fxml"));
         Parent formRoot = loader.load();
@@ -115,6 +79,7 @@ public class NoteController {
         controller.setNoteController(this); // pass reference to self
 
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED); // removes native title bar
         stage.setTitle("New Note");
 
         stage.setScene(new Scene(formRoot));
@@ -130,7 +95,6 @@ public class NoteController {
 
     @FXML
     public void saveModifiedNoteById(String newTitle, String newContent) {  // Method for editing the note and saving its new content to notes.
-        System.out.println("Save button pressed." + " ID: of the note: " + noteId);
         noteService.saveNote(newTitle, newContent, noteId);
         noteStorageService.saveNotes(noteService.getNotes());
     }
