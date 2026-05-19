@@ -1,36 +1,31 @@
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<VBox fx:controller="org.example.jnote.controllers.NoteFormController"
+      xmlns:fx="http://javafx.com/fxml"
+      styleClass="form-root"
+      stylesheets="@styles.css"
+      spacing="16">
+    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
 
-<GridPane fx:controller="org.example.jnote.controllers.NoteFormController"
-          xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10">
-    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+    <Label text="New Note" styleClass="form-title"/>
+    <Separator styleClass="separator"/>
 
-    <Text text="Create a new note by filling the fields" GridPane.columnIndex="0" GridPane.rowIndex="0"
-          GridPane.columnSpan="2"/>
-    <Label text="Title:"
-           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Title" styleClass="form-label"/>
+    <TextField fx:id="titleField" styleClass="form-field" promptText="Note title..."/>
 
-    <TextField fx:id="titleField"
-               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Content" styleClass="form-label"/>
+    <TextArea fx:id="content" styleClass="form-textarea"
+              promptText="Start writing..." prefHeight="200"/>
 
-    <Label text="Content:"
-           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-
-    <TextArea fx:id="content"
-              GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-    <HBox spacing="10" alignment="bottom_right"
-          GridPane.columnIndex="1" GridPane.rowIndex="4">
+    <HBox alignment="CENTER_RIGHT" spacing="8">
+        <Text fx:id="actiontarget" styleClass="form-action-text"/>
         <Button fx:id="submitButton" text="Submit"
+                styleClass="save-button"
                 onAction="#handleSubmitButtonAction"/>
     </HBox>
 
-    <Text fx:id="actiontarget"
-          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-</GridPane>
+</VBox>
