@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<SplitPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.jnote.controllers.NoteController">
-<ListView fx:id="noteList" />
-<VBox fx:id="detailPane">
-    <Label text="Select a note..." />
-</VBox>
-    <Button onAction="#handleNewButtonAction">+</Button>
-</SplitPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.jnote.controllers.NoteController"
+            stylesheets="@styles.css">
+    <left>
+        <VBox styleClass="sidebar">
+            <padding><Insets top="16" right="12" bottom="16" left="12"/></padding>
+            <Label text="🗒 JNote" styleClass="sidebar-title"/>
+            <Separator styleClass="separator">
+                <VBox.margin><Insets top="12" bottom="12"/></VBox.margin>
+            </Separator>
+            <ListView fx:id="noteList" VBox.vgrow="ALWAYS"/>
+            <Button onAction="#handleNewButtonAction" maxWidth="Infinity"
+                    styleClass="new-note-button" text="+ New Note">
+                <VBox.margin><Insets top="12"/></VBox.margin>
+            </Button>
+        </VBox>
+    </left>
+    <center>
+        <VBox fx:id="detailPane" styleClass="detail-pane">
+            <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+            <Label text="Select a note..." styleClass="note-date"/>
+        </VBox>
+    </center>
+</BorderPane>
