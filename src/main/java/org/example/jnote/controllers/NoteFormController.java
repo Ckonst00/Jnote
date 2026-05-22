@@ -2,7 +2,6 @@ package org.example.jnote.controllers;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
-import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
@@ -10,8 +9,7 @@ import javafx.util.Duration;
 
 public class NoteFormController {
     private NoteController noteController; // <-- Calls method from NoteController
-    @FXML
-    private Text actiontarget;
+
     @FXML
     private TextField titleField;
     @FXML
@@ -24,7 +22,7 @@ public class NoteFormController {
     }
 
     @FXML protected void handleSubmitButtonAction() {
-        actiontarget.setText("Submit button pressed");
+
         noteController.addNote(titleField.getText(), content.getText());
 
             PauseTransition pause = new PauseTransition(Duration.millis(100));  // Makes the UI look and feel cooler :D.

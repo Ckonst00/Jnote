@@ -1,15 +1,14 @@
 package org.example.jnote.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.example.jnote.models.Note;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
 public class NoteStorageService  {
     private static final String FILE_PATH = "notes.json";
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     // Save notes to JSON
     public void saveNotes(List<Note> notes) {
@@ -28,7 +27,8 @@ public class NoteStorageService  {
         }
 
         try {
-            return objectMapper.readValue(file, new TypeReference<List<Note>>() {});
+            return objectMapper.readValue(file, new TypeReference<>() {
+            });
         } catch (IOException e) {
             e.printStackTrace();
             return List.of(); // fallback to empty list if error

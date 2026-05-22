@@ -72,7 +72,6 @@ public class NoteController {
 
     @FXML
     public void handleNewButtonAction () throws IOException {  // Method initializing the form window for new notes.
-        System.out.println("Add note button pressed.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/jnote/note-form.fxml"));
         Parent formRoot = loader.load();
         NoteFormController controller = loader.getController();
@@ -83,7 +82,6 @@ public class NoteController {
         stage.setTitle("New Note");
 
         stage.setScene(new Scene(formRoot));
-        stage.setResizable(false); // Doesn't allow resizing the window.
         stage.show();
     }
 
