@@ -2,7 +2,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.Text?>
 
 <VBox fx:controller="org.example.jnote.controllers.NoteFormController"
       xmlns:fx="http://javafx.com/fxml"
@@ -34,7 +33,6 @@
                   prefHeight="200"/>
 
         <HBox alignment="CENTER_RIGHT" spacing="8">
-            <Text fx:id="actiontarget" styleClass="form-action-text"/>
 
             <Button fx:id="submitButton"
                     text="Submit"
